@@ -11,7 +11,8 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		last = "-correct-brightgreen.svg"
 	}
-	http.Redirect(w, r, "https://img.shields.io/badge/solution"+last, http.StatusFound)
+	w.Header().Set("Cache-Control", "no-cache")
+	http.Redirect(w, r, "https://img.shields.io/badge/solution"+last, 302)
 	return
 }
  
