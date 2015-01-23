@@ -1,13 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 )
 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
-	s := r.URL.Path[1:]
-	fmt.Fprintf(w, "Hi there, I love %s!", s)
+	http.Redirect(w, r, "http://www.google.com", http.StatusFound)
+	return
 }
  
 
